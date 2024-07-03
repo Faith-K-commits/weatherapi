@@ -19,15 +19,15 @@ def temperature(request):
     if client_ip:
         try:
             ip_info_response = requests.get(f'http://ipinfo.io/{client_ip}')
-            ip_info_response.raise_for_status()  # Check for HTTP errors
+            ip_info_response.raise_for_status()  
             ip_info_data = ip_info_response.json()
             location = ip_info_data.get('city', 'Unknown Location')
-            print(f'IP Info response: {ip_info_data}')  # Debug print entire response
+            print(f'IP Info response: {ip_info_data}')  
         except requests.RequestException as e:
-            print(f'Error fetching IP info: {e}')  # Debug print error
+            print(f'Error fetching IP info: {e}')  
             location = 'Unknown Location'
 
-        # Fetch temperature for the location
+       
         if location != 'Unknown Location':
             try:
                 weather_response = requests.get(

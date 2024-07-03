@@ -1,7 +1,6 @@
 from django.urls import path
-from .views import temperature
+from . import views
 
 urlpatterns = [
-    path('temp/', temperature, name='temp'),
-    # path(r'swagger/', schema_view),  # Swagger API documentation
+    path('temp/', views.temperature, name='temp'),
 ]
